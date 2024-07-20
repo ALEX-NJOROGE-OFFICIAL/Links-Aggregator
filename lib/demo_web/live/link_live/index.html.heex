@@ -1,0 +1,37 @@
+<div class="flex gap-2">
+<h1 class="grow text-2xl font-bold"> Links </h1>
+
+<.link 
+navigate={~p"/links/new"} 
+class="bg-black border border-black hover:bg-gray-700 text-white font-bold py-2 px-3 rounded-md"
+>
+
+Add Link
+</.link>
+</div>
+
+<div class="divide-y">
+<div :for={link <- @links} class="py-2">
+    <div>
+    <div class="font-bold"><%= link.url %></div>
+    <div class="text-sm"><%= link.inserted_at %></div>
+    </div>
+</div>
+</div>
+
+
+<.form for={@form} phx-submit="submit">
+<div class="flex gap-2 items-end">
+<div class="grow">
+<.input field={@form[:url]} type="text" label="url"/>
+</div>
+
+<button class="bg-black border border-black hover:bg-gray-700 text-white font-bold py-2 px-3 rounded-md"
+
+phx-submit="submit">
+    Create
+   </button>
+
+</div>
+
+</.form>
